@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/fragment_navigation" app:startDestination="@+id/passwordFragment">
+
+    <fragment android:id="@+id/randomFragment" android:name="com.example.numbergenerator.RandomFragment"
+        android:label="Random">
+    </fragment>
+
+    <fragment android:id="@+id/passwordFragment" android:name="com.example.numbergenerator.PasswordFragment"
+        android:label="Password">
+    </fragment>
+
+    <fragment android:id="@+id/diceFragment" android:name="com.example.numbergenerator.DiceFragment"
+        android:label="Dice">
+    </fragment>
+
+    <fragment android:id="@+id/coinFragment" android:name="com.example.numbergenerator.CoinFragment"
+        android:label="Coin">
+    </fragment>
+
+    <fragment android:id="@+id/lottoFragment" android:name="com.example.numbergenerator.LottoFragment"
+        android:label="Lotto">
+    </fragment>
+
+</navigation>
