@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Number Generator</string>
+    <string name="random_number_generator">Random Number Generator</string>
+    <string name="how_many_coins_are_you_flipping">How many coins are you flipping?</string>
+    <string name="_0">0</string>
+    <string name="flip">Flip</string>
+    <string name="generate">Generate</string>
+    <string name="how_many_numbers_do_you_need">How many numbers do you need?</string>
+    <string name="maximum_number_of_range">Maximum number of range?</string>
+    <string name="minimum_number_of_range">Minimum number of range?</string>
+    <string name="coin_flipper">Coin Flipper</string>
 </resources>

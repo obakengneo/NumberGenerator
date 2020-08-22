@@ -6,5 +6,122 @@
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:textColor="@android:color/darker_gray"
+        android:textColorHint="@android:color/darker_gray"
+        android:text="@string/coin_flipper">
+    </TextView>
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:layout_margin="20dp"
+        android:background="@color/backgroundColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:paddingBottom="0.5dp"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/backgroundColor"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:textColor="@android:color/darker_gray"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:text="@string/how_many_coins_are_you_flipping">
+                </TextView>
+
+                <EditText
+                    android:id="@+id/edtNumberOfCoins"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:ems="10"
+                    android:background="@android:color/transparent"
+                    android:textColor="@android:color/darker_gray"
+                    android:textColorHint="@android:color/darker_gray"
+                    android:gravity="center"
+                    android:layout_marginRight="10dp"
+                    android:hint="@string/_0"
+                    android:layout_weight="3"
+                    android:inputType="number"
+                    android:layout_marginEnd="10dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <Button
+        android:id="@+id/btnFlip"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textAllCaps="false"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="@string/flip" />
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/txtSides"
+            android:gravity="start"
+            android:layout_margin="20dp"
+            android:textColor="@android:color/darker_gray"
+            android:textColorHint="@android:color/darker_gray"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp">
+        </TextView>
+    </ScrollView>
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/txtHeads"
+            android:gravity="start"
+            android:layout_margin="20dp"
+            android:textColor="@android:color/darker_gray"
+            android:textColorHint="@android:color/darker_gray"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp">
+        </TextView>
+    </ScrollView>
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/txtTails"
+            android:gravity="start"
+            android:layout_margin="20dp"
+            android:textColor="@android:color/darker_gray"
+            android:textColorHint="@android:color/darker_gray"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp">
+        </TextView>
+    </ScrollView>
 </LinearLayout>
