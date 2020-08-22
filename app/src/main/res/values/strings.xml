@@ -9,4 +9,7 @@
     <string name="maximum_number_of_range">Maximum number of range?</string>
     <string name="minimum_number_of_range">Minimum number of range?</string>
     <string name="coin_flipper">Coin Flipper</string>
+    <string name="dice_roller">Dice Roller</string>
+    <string name="how_many_dice_are_you_rolling">How many dice are you rolling?</string>
+    <string name="roll">Roll</string>
 </resources>

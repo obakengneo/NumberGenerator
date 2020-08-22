@@ -33,7 +33,7 @@
             app:tabSelectedTextColor="@color/colorPrimary"
             app:tabIndicatorColor="@color/colorPrimary"
             android:id="@+id/tabs"
-            app:tabGravity="fill"/>
+            app:tabGravity="start"/>
 
         <androidx.viewpager.widget.ViewPager
             android:layout_width="match_parent"
