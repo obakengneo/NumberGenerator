@@ -2,33 +2,63 @@ package com.example.numbergenerator
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.viewpager.widget.ViewPager
-import com.google.android.material.tabs.TabLayout
+import androidx.fragment.app.Fragment
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import kotlinx.android.synthetic.main.bottom_menu.view.*
 
 class MainActivity : AppCompatActivity() {
-
-    private lateinit var toolbar: androidx.appcompat.widget.Toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        toolbar = findViewById(R.id.toolbar)
+        val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
+        setFragment(RandomFragment())
 
         val actionBar = supportActionBar
+
         actionBar!!.title = "Random Generator"
+        actionBar.setDisplayHomeAsUpEnabled(true)
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_baseline_menu_open_24)
+    }
 
-        val viewPager: ViewPager = findViewById(R.id.viewPager)
-        val tabs: TabLayout = findViewById(R.id.tabs)
+    override fun onSupportNavigateUp(): Boolean {
+        bottomMenuPopUp()
+        return true
+    }
 
-        val adapter = MyViewPagerAdapter(supportFragmentManager)
-        adapter.addFragment(RandomFragment(), "RNG")
-        adapter.addFragment(DiceFragment(), "Dice")
-        adapter.addFragment(CoinFragment(), "Coin")
-        adapter.addFragment(TeamsFragment(), "Teams")
+    private fun bottomMenuPopUp () {
+        val view = layoutInflater.inflate(R.layout.bottom_menu, null)
+        val bottomSheetDialog = BottomSheetDialog(this)
 
-        viewPager.adapter = adapter
-        tabs.setupWithViewPager(viewPager)
+        bottomSheetDialog.setContentView(view)
+        bottomSheetDialog.show()
+
+        view.thaboSheet.setOnClickListener {
+            setFragment(TeamsFragment())
+            bottomSheetDialog.dismiss()
+        }
+
+        view.mahlokoSheet.setOnClickListener {
+            setFragment(RandomFragment())
+            bottomSheetDialog.dismiss()
+        }
+
+        view.leseliSheet.setOnClickListener {
+            setFragment(CoinFragment())
+            bottomSheetDialog.dismiss()
+        }
+
+        view.letlotloSheet.setOnClickListener {
+            setFragment(DiceFragment())
+            bottomSheetDialog.dismiss()
+        }
+    }
+
+    private fun setFragment(fragment: Fragment) {
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.nav_host_fragment, fragment)
+        fragmentTransaction.commit()
     }
 }

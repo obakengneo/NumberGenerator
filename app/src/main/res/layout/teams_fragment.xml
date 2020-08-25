@@ -21,22 +21,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
-
-                <TextView
-                    android:scrollbars = "none"
-                    android:id="@+id/txtDisplayMystery"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:gravity="center"
-                    android:layout_weight="1"
-                    android:scrollbarAlwaysDrawVerticalTrack="false"
-                    android:textColor="@color/backgroundColor"
-                    android:textSize="19sp">
-                </TextView>
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
@@ -52,11 +36,10 @@
                         android:textColor="@android:color/darker_gray"
                         android:textColorHint="@android:color/darker_gray"
                         android:hint="@string/enter_a_name"
-                        android:layout_marginLeft="10dp"
+                        android:textSize="16sp"
                         android:textColorHighlight="@color/colorPrimary"
                         android:layout_weight="4"
-                        android:gravity="center"
-                        android:layout_marginStart="10dp" />
+                        android:gravity="center"/>
 
                     <Button
                         android:id="@+id/btnAdd"
@@ -71,6 +54,16 @@
                         android:text="@string/add" />
                 </LinearLayout>
 
+                <ListView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:tint="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:divider="@android:color/transparent"
+                    android:id="@+id/lstNames">
+                </ListView>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
@@ -80,12 +73,12 @@
                     android:background="@android:color/black">
 
                     <Button
-                        android:id="@+id/btnEnter"
+                        android:id="@+id/btnGenerateTeams"
                         android:layout_width="0dp"
+                        android:layout_margin="5dp"
                         android:layout_height="match_parent"
-                        android:layout_margin="8dp"
-                        android:background="@color/colorPrimaryDark"
-                        android:textColor="@android:color/black"
+                        android:textColor="@android:color/background_dark"
+                        android:background="@drawable/background"
                         android:textSize="18sp"
                         android:layout_weight="1"
                         android:textAllCaps="false"

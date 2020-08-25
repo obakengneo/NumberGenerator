@@ -5,6 +5,7 @@ import android.view.*
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 
 class CoinFragment : Fragment() {
@@ -12,6 +13,8 @@ class CoinFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view: View = inflater.inflate(R.layout.coin_fragment, container, false)
         val reusableMethods = ReusableMethods()
+
+        setUpToolBar()
 
         val txtNumberOfCoins = view.findViewById<EditText>(R.id.edtNumberOfCoins)
         val txtSides = view.findViewById<TextView>(R.id.txtSides)
@@ -55,5 +58,11 @@ class CoinFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         setHasOptionsMenu(true)
         super.onCreate(savedInstanceState)
+    }
+
+    private fun setUpToolBar () {
+        val actionBar = (activity as AppCompatActivity).supportActionBar
+
+        actionBar!!.title = "Coin Flipper"
     }
 }

@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import java.lang.Exception
 
@@ -14,6 +15,8 @@ class RandomFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val view: View = inflater.inflate(R.layout.random_fragment, container, false)
+
+        setUpToolBar()
 
         val reusableMethods = ReusableMethods()
 
@@ -75,5 +78,11 @@ class RandomFragment : Fragment() {
         setHasOptionsMenu(true)
 
         super.onCreate(savedInstanceState)
+    }
+
+    private fun setUpToolBar () {
+        val actionBar = (activity as AppCompatActivity).supportActionBar
+
+        actionBar!!.title = "RNG"
     }
 }

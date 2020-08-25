@@ -6,25 +6,16 @@
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="30dp"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:textColor="@color/colorPrimary"
-        android:textColorHint="@android:color/darker_gray"
-        android:text="@string/coin_flipper">
-    </TextView>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
 
     <LinearLayout
         android:orientation="vertical"
-        android:padding="10dp"
         android:layout_margin="20dp"
-        android:background="@color/backgroundColor"
+        android:background="@android:color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
@@ -36,7 +27,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/backgroundColor"
+                android:background="@android:color/black"
                 android:orientation="horizontal">
 
                 <TextView
@@ -44,6 +35,7 @@
                     android:layout_height="40dp"
                     android:layout_gravity="center"
                     android:layout_weight="1"
+                    android:textSize="16sp"
                     android:gravity="center_vertical"
                     android:textColor="@android:color/darker_gray"
                     android:textColorHint="@android:color/darker_gray"
@@ -56,32 +48,24 @@
                     android:layout_height="40dp"
                     android:ems="10"
                     android:background="@android:color/transparent"
-                    android:textColor="@android:color/darker_gray"
+                    android:textColor="@color/colorPrimary"
                     android:textColorHint="@android:color/darker_gray"
                     android:gravity="center"
-                    android:layout_marginRight="10dp"
                     android:hint="@string/_0"
+                    android:textSize="16sp"
                     android:layout_weight="3"
-                    android:inputType="number"
-                    android:layout_marginEnd="10dp" />
+                    android:inputType="number"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-    <Button
-        android:id="@+id/btnFlip"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/colorPrimaryDark"
-        android:textColor="@android:color/black"
-        android:textSize="18sp"
-        android:textAllCaps="false"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:text="@string/flip" />
 
-    <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
         <TextView
             android:id="@+id/txtSides"
             android:gravity="start"
@@ -95,11 +79,7 @@
             android:layout_height="wrap_content"
             android:textSize="20sp">
         </TextView>
-    </ScrollView>
 
-    <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
         <TextView
             android:id="@+id/txtHeads"
             android:gravity="start"
@@ -112,11 +92,7 @@
             android:layout_height="wrap_content"
             android:textSize="20sp">
         </TextView>
-    </ScrollView>
 
-    <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
         <TextView
             android:id="@+id/txtTails"
             android:gravity="start"
@@ -128,5 +104,27 @@
             android:layout_height="wrap_content"
             android:textSize="20sp">
         </TextView>
-    </ScrollView>
+        </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:background="@android:color/black">
+
+        <Button
+            android:id="@+id/btnFlip"
+            android:layout_width="0dp"
+            android:layout_margin="5dp"
+            android:layout_height="match_parent"
+            android:textColor="@android:color/background_dark"
+            android:background="@drawable/background"
+            android:textSize="18sp"
+            android:layout_weight="1"
+            android:textAllCaps="false"
+            android:text="@string/flip" />
+    </LinearLayout>
 </LinearLayout>

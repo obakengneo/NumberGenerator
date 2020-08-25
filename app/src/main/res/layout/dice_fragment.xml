@@ -6,72 +6,44 @@
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
     <LinearLayout
-        android:layout_width="match_parent"
         android:orientation="vertical"
-        android:layout_height="wrap_content">
-    <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="30dp"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:textColor="@color/colorPrimary"
-        android:textColorHint="@android:color/darker_gray"
-        android:text="@string/dice_roller">
-    </TextView>
+        android:layout_weight="1"
+        android:layout_height="0dp">
 
     <LinearLayout
         android:orientation="vertical"
-        android:padding="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:background="@android:color/black"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="10dp"
-        android:background="@color/backgroundColor"
-        android:layout_width="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/white"
+            android:background="@android:color/black"
             android:orientation="horizontal">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/backgroundColor"
+                android:layout_margin="5dp"
+                android:background="@android:color/black"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
-                    android:layout_weight="1"
+                    android:textSize="16sp"
                     android:gravity="center_vertical"
                     android:textColor="@android:color/darker_gray"
                     android:textColorHint="@android:color/darker_gray"
                     android:text="@string/how_many_dice_are_you_rolling">
-                </TextView>
-
-                <TextView
-                    android:id="@+id/txtNumberOfDice"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="3"
-                    android:gravity="center"
-                    android:layout_marginRight="10dp"
-                    android:textColor="@android:color/darker_gray"
-                    android:textColorHint="@android:color/darker_gray"
-                    android:layout_marginEnd="10dp"
-                    android:text="@string/_0">
                 </TextView>
             </LinearLayout>
         </LinearLayout>
@@ -79,6 +51,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@android:color/black"
             android:orientation="horizontal">
 
             <Button
@@ -88,7 +61,9 @@
                 android:layout_weight="1"
                 android:layout_margin="4dp"
                 android:textStyle="bold"
-                android:background="@color/colorPrimary"
+                android:textSize="18sp"
+                android:textColor="@color/colorPrimary"
+                android:background="@drawable/small_btn_background"
                 android:text="1">
             </Button>
 
@@ -99,7 +74,9 @@
                 android:layout_weight="1"
                 android:layout_margin="4dp"
                 android:textStyle="bold"
-                android:background="@color/colorPrimary"
+                android:textSize="18sp"
+                android:textColor="@color/colorPrimary"
+                android:background="@drawable/small_btn_background"
                 android:text="2">
             </Button>
 
@@ -110,7 +87,9 @@
                 android:layout_weight="1"
                 android:layout_margin="4dp"
                 android:textStyle="bold"
-                android:background="@color/colorPrimary"
+                android:textSize="18sp"
+                android:textColor="@color/colorPrimary"
+                android:background="@drawable/small_btn_background"
                 android:text="3">
             </Button>
 
@@ -121,32 +100,49 @@
                 android:layout_weight="1"
                 android:layout_margin="4dp"
                 android:textStyle="bold"
-                android:background="@color/colorPrimary"
+                android:textSize="18sp"
+                android:textColor="@color/colorPrimary"
+                android:background="@drawable/small_btn_background"
                 android:text="4">
+            </Button>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:background="@android:color/transparent">
+            </Button>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:background="@android:color/transparent">
             </Button>
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         android:orientation="vertical"
-        android:padding="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:background="@android:color/black"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="20dp"
-        android:background="@color/backgroundColor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/white"
+            android:background="@android:color/black"
             android:orientation="horizontal">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/backgroundColor"
+                android:layout_margin="5dp"
+                android:background="@android:color/black"
                 android:orientation="horizontal">
 
                 <TextView
@@ -154,25 +150,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
-                    android:layout_weight="1"
+                    android:textSize="16sp"
                     android:gravity="center_vertical"
                     android:textColor="@android:color/darker_gray"
                     android:textColorHint="@android:color/darker_gray"
-                    android:text="How many sides does each die have?">
-                </TextView>
-
-                <TextView
-                    android:id="@+id/txtNumberOfEachDie"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="3"
-                    android:gravity="center"
-                    android:layout_marginRight="10dp"
-                    android:textColor="@android:color/darker_gray"
-                    android:textColorHint="@android:color/darker_gray"
-                    android:layout_marginEnd="10dp"
-                    android:text="@string/_0">
+                    android:text="@string/how_many_sides_does_each_die_have">
                 </TextView>
             </LinearLayout>
         </LinearLayout>
@@ -189,8 +171,23 @@
                 android:layout_weight="1"
                 android:layout_margin="4dp"
                 android:textStyle="bold"
-                android:background="@color/colorPrimary"
-                android:text="4">
+                android:textSize="18sp"
+                android:textColor="@color/colorPrimary"
+                android:background="@drawable/small_btn_background"
+                android:text="@string/_4">
+            </Button>
+
+            <Button
+                android:id="@+id/btnSides6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@color/colorPrimary"
+                android:background="@drawable/small_btn_background"
+                android:text="@string/_6">
             </Button>
 
             <Button
@@ -200,8 +197,23 @@
                 android:layout_weight="1"
                 android:layout_margin="4dp"
                 android:textStyle="bold"
-                android:background="@color/colorPrimary"
-                android:text="8">
+                android:textSize="18sp"
+                android:textColor="@color/colorPrimary"
+                android:background="@drawable/small_btn_background"
+                android:text="@string/_8">
+            </Button>
+
+            <Button
+                android:id="@+id/btnSides10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@color/colorPrimary"
+                android:background="@drawable/small_btn_background"
+                android:text="@string/_10">
             </Button>
 
             <Button
@@ -211,8 +223,10 @@
                 android:layout_weight="1"
                 android:layout_margin="4dp"
                 android:textStyle="bold"
-                android:background="@color/colorPrimary"
-                android:text="12">
+                android:textSize="18sp"
+                android:textColor="@color/colorPrimary"
+                android:background="@drawable/small_btn_background"
+                android:text="@string/_12">
             </Button>
 
             <Button
@@ -222,34 +236,30 @@
                 android:layout_weight="1"
                 android:layout_margin="4dp"
                 android:textStyle="bold"
-                android:background="@color/colorPrimary"
-                android:text="16">
+                android:textSize="18sp"
+                android:textColor="@color/colorPrimary"
+                android:background="@drawable/small_btn_background"
+                android:text="@string/_16">
             </Button>
         </LinearLayout>
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btnRoll"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="20dp"
+            android:layout_height="match_parent">
+            <ScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/colorPrimaryDark"
-        android:textColor="@android:color/black"
-        android:textSize="18sp"
-        android:textAllCaps="false"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:text="@string/roll" />
-
-    <ScrollView
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content">
         <TextView
             android:id="@+id/txtRolls"
             android:gravity="start"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
             android:layout_marginBottom="10dp"
             android:textColor="@android:color/darker_gray"
             android:textColorHint="@android:color/darker_gray"
@@ -257,23 +267,38 @@
             android:layout_height="wrap_content"
             android:textSize="20sp">
         </TextView>
-    </ScrollView>
 
-    <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
         <TextView
             android:id="@+id/txtSumOfDie"
             android:gravity="start"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
             android:textColor="@android:color/darker_gray"
             android:textColorHint="@android:color/darker_gray"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp">
         </TextView>
-    </ScrollView>
     </LinearLayout>
-    </ScrollView>
+            </ScrollView>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:background="@android:color/black">
+
+        <Button
+            android:id="@+id/btnRoll"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textColor="@android:color/background_dark"
+            android:textSize="18sp"
+            android:background="@drawable/background"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:textAllCaps="false"
+            android:text="@string/roll" />
+    </LinearLayout>
 </LinearLayout>
