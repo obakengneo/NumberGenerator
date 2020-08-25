@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         adapter.addFragment(RandomFragment(), "RNG")
         adapter.addFragment(DiceFragment(), "Dice")
         adapter.addFragment(CoinFragment(), "Coin")
-        adapter.addFragment(LottoFragment(), "Teams")
+        adapter.addFragment(TeamsFragment(), "Teams")
 
         viewPager.adapter = adapter
         tabs.setupWithViewPager(viewPager)
