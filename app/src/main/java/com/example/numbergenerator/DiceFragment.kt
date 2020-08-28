@@ -7,6 +7,7 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class DiceFragment : Fragment() {
 
@@ -19,7 +20,7 @@ class DiceFragment : Fragment() {
 
         val txtRolls = view.findViewById<TextView>(R.id.txtRolls)
         val txtSumOfDie = view.findViewById<TextView>(R.id.txtSumOfDie)
-        val btnRoll = view.findViewById<Button>(R.id.btnRoll)
+        val btnRoll = view.findViewById<FloatingActionButton>(R.id.btnRoll)
         val btnNumberOfDice1 = view.findViewById<Button>(R.id.btnNumberOfDice1)
         val btnNumberOfDice2 = view.findViewById<Button>(R.id.btnNumberOfDice2)
         val btnNumberOfDice3 = view.findViewById<Button>(R.id.btnNumberOfDice3)

@@ -1,28 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/rng"
-        android:icon="@drawable/arrows"
-        android:title="RNG">
+    <item android:id="@+id/randomFragment"
+        android:icon="@drawable/random_selector"
+        android:title="Lotto">
     </item>
 
-    <item android:id="@+id/password"
-        android:icon="@drawable/closed"
-        android:title="Password">
-    </item>
-
-    <item android:id="@+id/dice"
-        android:icon="@drawable/gaming"
+    <item android:id="@+id/diceFragment"
+        android:icon="@drawable/dice_selector"
         android:title="Dice">
     </item>
 
-    <item android:id="@+id/coin"
-        android:icon="@drawable/business"
+    <item android:id="@+id/coinFragment"
+        android:icon="@drawable/coin_selector"
         android:title="Coin">
     </item>
 
-    <item android:id="@+id/lotto"
-        android:icon="@drawable/game"
-        android:title="Lotto">
+    <item android:id="@+id/teamsFragment"
+        android:icon="@drawable/teams_selector"
+        android:title="Teams">
     </item>
 </menu>

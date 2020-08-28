@@ -8,6 +8,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.lang.Exception
 
 class RandomFragment : Fragment() {
@@ -23,7 +24,7 @@ class RandomFragment : Fragment() {
         val edtFrom = view.findViewById<EditText>(R.id.edtFrom)
         val edtTo = view.findViewById<EditText>(R.id.edtTo)
         val number = view.findViewById<EditText>(R.id.number)
-        val btnGetRange = view.findViewById<Button>(R.id.btnEnter)
+        val btnGetRange = view.findViewById<FloatingActionButton>(R.id.btnEnter)
         val result = view.findViewById<TextView>(R.id.txtValue)
 
         btnGetRange.setOnClickListener{

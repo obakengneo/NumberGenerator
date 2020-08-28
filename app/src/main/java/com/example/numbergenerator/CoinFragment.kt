@@ -7,6 +7,7 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class CoinFragment : Fragment() {
 
@@ -20,7 +21,7 @@ class CoinFragment : Fragment() {
         val txtSides = view.findViewById<TextView>(R.id.txtSides)
         val txtHeads = view.findViewById<TextView>(R.id.txtHeads)
         val txtTails = view.findViewById<TextView>(R.id.txtTails)
-        val btnFlip = view.findViewById<Button>(R.id.btnFlip)
+        val btnFlip = view.findViewById<FloatingActionButton>(R.id.btnFlip)
 
         val sides: MutableList<String> = ArrayList()
         var heads = 0
