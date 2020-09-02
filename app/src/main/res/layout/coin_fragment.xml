@@ -7,116 +7,177 @@
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="match_parent"
         android:orientation="vertical">
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_margin="20dp"
-        android:background="@android:color/black"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/white"
-            android:orientation="horizontal">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@android:color/black"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:textSize="16sp"
-                    android:gravity="center_vertical"
-                    android:textColor="@android:color/white"
-                    android:textColorHint="@android:color/darker_gray"
-                    android:text="@string/how_many_coins_are_you_flipping">
-                </TextView>
-
-                <EditText
-                    android:id="@+id/edtNumberOfCoins"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:ems="10"
-                    android:background="@android:color/transparent"
-                    android:textColor="@color/colorPrimary"
-                    android:textColorHint="@android:color/darker_gray"
-                    android:gravity="center"
-                    android:hint="@string/_0"
-                    android:textStyle="bold"
-                    android:textSize="18sp"
-                    android:layout_weight="3"
-                    android:inputType="number"/>
-            </LinearLayout>
-        </LinearLayout>
-    </LinearLayout>
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="vertical"
-            android:layout_height="wrap_content">
-        <TextView
-            android:id="@+id/txtSides"
-            android:gravity="start"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="10dp"
-            android:textColor="@android:color/darker_gray"
-            android:textColorHint="@android:color/darker_gray"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20sp">
-        </TextView>
 
-        <TextView
-            android:id="@+id/txtHeads"
-            android:gravity="start"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="10dp"
-            android:textColor="@android:color/darker_gray"
-            android:textColorHint="@android:color/darker_gray"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20sp">
-        </TextView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/txtTails"
-            android:gravity="start"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:textColor="@android:color/darker_gray"
-            android:textColorHint="@android:color/darker_gray"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20sp">
-        </TextView>
-        </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_margin="20dp"
+                    android:background="@android:color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@android:color/black"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:gravity="center_vertical"
+                                android:textColor="@android:color/white"
+                                android:textColorHint="@android:color/darker_gray"
+                                android:text="@string/how_many_coins_are_you_flipping"></TextView>
+
+                            <EditText
+                                android:id="@+id/edtNumberOfCoins"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:ems="10"
+                                android:background="@android:color/transparent"
+                                android:textColor="@color/colorPrimary"
+                                android:textColorHint="@android:color/darker_gray"
+                                android:gravity="center"
+                                android:hint="@string/_0"
+                                android:textStyle="bold"
+                                android:textSize="18sp"
+                                android:layout_weight="3"
+                                android:inputType="number"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/txtSides1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginBottom="10dp"
+                            android:gravity="start"
+                            android:textColor="@color/colorPrimary"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:textSize="18sp"
+                            android:textStyle="bold"></TextView>
+
+                        <TextView
+                            android:id="@+id/txtSides"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_weight="1"
+                            android:gravity="start"
+                            android:textColor="@android:color/white"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:textSize="18sp"></TextView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/txtHeads1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginBottom="10dp"
+                            android:gravity="start"
+                            android:textColor="@color/colorPrimary"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:textSize="18sp"
+                            android:textStyle="bold"></TextView>
+
+                        <TextView
+                            android:id="@+id/txtHeads"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_weight="1"
+                            android:gravity="start"
+                            android:textColor="@android:color/white"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:textSize="18sp"></TextView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/txtTails1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginBottom="10dp"
+                            android:gravity="start"
+                            android:textColor="@color/colorPrimary"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:textSize="18sp"
+                            android:textStyle="bold"></TextView>
+
+                        <TextView
+                            android:id="@+id/txtTails"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_weight="1"
+                            android:gravity="start"
+                            android:textColor="@android:color/white"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:textSize="18sp"></TextView>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
         </ScrollView>
-    </LinearLayout>
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnFlip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
-        app:backgroundTint="@color/colorPrimary"
-        android:tint="@android:color/black"
-        app:srcCompat="@drawable/ic_refresh"
-        tools:ignore="VectorDrawableCompat"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnFlip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            android:tint="@android:color/black"
+            app:backgroundTint="@color/colorPrimary"
+            app:srcCompat="@drawable/ic_refresh"
+            tools:ignore="VectorDrawableCompat" />
+
+    </FrameLayout>
 </LinearLayout>

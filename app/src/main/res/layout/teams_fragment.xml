@@ -21,37 +21,50 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
+
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:background="@android:color/black">
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/black"
+                    android:orientation="vertical">
 
-                    <EditText
-                        android:id="@+id/edtName"
-                        android:layout_width="0dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:textColor="@android:color/darker_gray"
-                        android:textColorHint="@android:color/darker_gray"
-                        android:hint="@string/enter_a_name"
-                        android:textSize="16sp"
-                        android:textColorHighlight="@color/colorPrimary"
-                        android:layout_weight="4"
-                        android:gravity="center"/>
-
-                    <Button
-                        android:id="@+id/btnAdd"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:background="@android:color/transparent"
-                        android:textColor="@color/colorPrimary"
-                        android:textSize="18sp"
-                        android:layout_weight="1"
-                        android:textAllCaps="false"
+                        android:layout_gravity="center"
                         android:gravity="center"
-                        android:text="@string/add" />
+                        android:layout_margin="20dp"
+                        android:background="@drawable/small_btn_background"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/edtName"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:hint="@string/enter_a_name"
+                            android:textSize="16sp"
+                            android:focusable="true"
+                            android:gravity="center_vertical"
+                            android:paddingStart="20dp"
+                            android:textColorHighlight="@color/colorPrimary"
+                            android:layout_weight="4"
+                            android:textColor="@android:color/white"
+                            tools:ignore="RtlSymmetry" />
+
+                        <Button
+                            android:id="@+id/btnAdd"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="18sp"
+                            android:layout_weight="1"
+                            android:textAllCaps="false"
+                            android:gravity="center"
+                            android:text="@string/add" />
+                    </LinearLayout>
                 </LinearLayout>
 
                 <ListView
@@ -59,10 +72,11 @@
                     android:layout_height="0dp"
                     android:tint="@android:color/black"
                     android:layout_weight="1"
+                    android:layout_margin="10dp"
+                    android:clickable="false"
                     android:gravity="center"
                     android:divider="@android:color/transparent"
-                    android:id="@+id/lstNames">
-                </ListView>
+                    android:id="@+id/lstNames"></ListView>
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/btnGenerate"

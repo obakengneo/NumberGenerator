@@ -1,14 +1,18 @@
 package com.example.numbergenerator
 
 import android.os.Bundle
-import android.view.*
-import android.widget.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageButton
+import android.widget.ScrollView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.bottom_menu.view.*
-import java.lang.Exception
 
 class RandomFragment : Fragment() {
     private val reusableMethods = ReusableMethods()
@@ -33,21 +37,21 @@ class RandomFragment : Fragment() {
             bottomSheetDialog.show()
 
             bottomSheetDialogView.lotto.setOnClickListener {
-                txtDraw.text = "Lotto"
+                txtDraw.text = getString(R.string.lotto_heading)
                 lengthOfNumbers = 6
                 maximumNumber = 52
                 bottomSheetDialog.dismiss()
             }
 
             bottomSheetDialogView.dailyLotto.setOnClickListener {
-                txtDraw.text = "Daily Lotto"
+                txtDraw.text = getString(R.string.daily_lotto_heading)
                 lengthOfNumbers = 5
                 maximumNumber = 36
                 bottomSheetDialog.dismiss()
             }
 
             bottomSheetDialogView.powerball.setOnClickListener {
-                txtDraw.text = "Powerball"
+                txtDraw.text = getString(R.string.powerball_heading)
                 lengthOfNumbers = 6
                 maximumNumber = 50
                 bottomSheetDialog.dismiss()

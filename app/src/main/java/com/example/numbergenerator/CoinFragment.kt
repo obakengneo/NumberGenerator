@@ -1,10 +1,12 @@
 package com.example.numbergenerator
 
 import android.os.Bundle
-import android.view.*
-import android.widget.Button
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -21,6 +23,9 @@ class CoinFragment : Fragment() {
         val txtSides = view.findViewById<TextView>(R.id.txtSides)
         val txtHeads = view.findViewById<TextView>(R.id.txtHeads)
         val txtTails = view.findViewById<TextView>(R.id.txtTails)
+        val txtSides1 = view.findViewById<TextView>(R.id.txtSides1)
+        val txtHeads1 = view.findViewById<TextView>(R.id.txtHeads1)
+        val txtTails1 = view.findViewById<TextView>(R.id.txtTails1)
         val btnFlip = view.findViewById<FloatingActionButton>(R.id.btnFlip)
 
         val sides: MutableList<String> = ArrayList()
@@ -28,30 +33,45 @@ class CoinFragment : Fragment() {
         var tails = 0
 
         btnFlip.setOnClickListener {
-            val numberOfCoins: Int = txtNumberOfCoins.text.toString().toInt()
+            val numberOfCoins = txtNumberOfCoins.text.toString()
 
-            for (i in 1..numberOfCoins) {
-                val result = reusableMethods.rand(0, 1)
+            when {
+                numberOfCoins != "" -> {
+                    for (i in 1..numberOfCoins.toInt()) {
+                        val result = reusableMethods.rand(0, 1)
 
-                if (result == 0) {
-                    sides.add("Heads")
-                    heads++
-                } else {
-                    sides.add("Tails")
-                    tails++
+                        if (result == 0) {
+                            sides.add("Heads")
+                            heads++
+                        } else {
+                            sides.add("Tails")
+                            tails++
+                        }
+                    }
+
+                    val filtered = "[]"
+                    val displaySides = sides.toString().filterNot { filtered.indexOf(it) > -1 }
+
+                    txtSides1.text = ("Side(s): ")
+                    txtHeads1.text = ("# of Heads: ")
+                    txtTails1.text = ("# of Tails: ")
+
+                    txtSides.text = (displaySides)
+                    txtHeads.text = ("$heads")
+                    txtTails.text = ("$tails")
+
+                    heads = 0
+                    tails = 0
+                    sides.clear()
+                }
+                else -> {
+                    Toast.makeText(
+                        this.requireContext(),
+                        "Please insert a number of coins to flip!",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
-
-            val filtered = "[]"
-            val displaySides = sides.toString().filterNot { filtered.indexOf(it) > -1 }
-
-            txtSides.text = "Side(s): $displaySides"
-            txtHeads.text = "No. of Heads: $heads"
-            txtTails.text = "No. of Tails: $tails"
-
-            heads = 0
-            tails = 0
-            sides.clear()
         }
         return view
     }

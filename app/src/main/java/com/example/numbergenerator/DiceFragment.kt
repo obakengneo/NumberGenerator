@@ -1,10 +1,12 @@
 package com.example.numbergenerator
 
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -20,6 +22,8 @@ class DiceFragment : Fragment() {
 
         val txtRolls = view.findViewById<TextView>(R.id.txtRolls)
         val txtSumOfDie = view.findViewById<TextView>(R.id.txtSumOfDie)
+        val txtRolls1 = view.findViewById<TextView>(R.id.txtRolls1)
+        val txtSumOfDie1 = view.findViewById<TextView>(R.id.txtSumOfDie1)
         val btnRoll = view.findViewById<FloatingActionButton>(R.id.btnRoll)
         val btnNumberOfDice1 = view.findViewById<Button>(R.id.btnNumberOfDice1)
         val btnNumberOfDice2 = view.findViewById<Button>(R.id.btnNumberOfDice2)
@@ -200,17 +204,36 @@ class DiceFragment : Fragment() {
 
         btnRoll.setOnClickListener {
             for (i in 1..numberOfDice) {
-                val num = reusableMethods.rand(1, numberOfSides)
+                when {
+                    numberOfSides < 4 -> {
+                        Toast.makeText(
+                            this.requireContext(),
+                            "Please select number of sides!",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                    else -> {
+                        val num = reusableMethods.rand(1, numberOfSides)
 
-                sum += num
-                rolls.add(num.toString())
+                        sum += num
+                        rolls.add(num.toString())
+                    }
+                }
             }
 
             val filtered = "[]"
-            val displayResults = rolls.toString().filterNot { filtered.indexOf(it) > -1 }
+            var displayResults = rolls.toString().filterNot { filtered.indexOf(it) > -1 }
 
-            txtRolls.text = ("Roll(s): $displayResults")
-            txtSumOfDie.text = ("Sum: $sum")
+            if (displayResults == "") {
+                displayResults = "0"
+            }
+
+            txtRolls1.text = ("Roll(s): ")
+            txtSumOfDie1.text = ("Sum: ")
+
+            txtRolls.text = displayResults
+            txtSumOfDie.text = "$sum"
+
             rolls.clear()
             sum = 0
         }
@@ -228,9 +251,5 @@ class DiceFragment : Fragment() {
         val actionBar = (activity as AppCompatActivity).supportActionBar
 
         actionBar!!.title = "Dice Roller"
-    }
-
-    private fun setBackgroundColor () {
-
     }
 }

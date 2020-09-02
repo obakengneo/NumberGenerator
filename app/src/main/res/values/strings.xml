@@ -22,4 +22,7 @@
     <string name="_16">16</string>
     <string name="how_many_sides_does_each_die_have">How many sides does each die have?</string>
     <string name="which_lottery_numbers_are_you_simulating">Which lottery numbers are you simulating?</string>
+    <string name="lotto_heading">Lotto</string>
+    <string name="daily_lotto_heading">Daily Lotto</string>
+    <string name="powerball_heading">Powerball</string>
 </resources>
