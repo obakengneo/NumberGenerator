@@ -7,31 +7,47 @@
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_weight="1"
-        android:layout_height="0dp">
+        android:layout_height="match_parent"
+        android:background="@drawable/shadow"
+        android:paddingTop="0.1dp"
+        android:paddingBottom="0.1dp">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_gravity="center_vertical|center_horizontal"
-        android:background="@android:color/black"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/black"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:background="@color/black"
+            android:orientation="vertical">
 
-            <LinearLayout
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|center_horizontal"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@android:color/black"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/black"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
                 android:layout_margin="5dp"
                 android:background="@android:color/black"
                 android:orientation="horizontal">
@@ -39,11 +55,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:textStyle="bold"
-                    android:textSize="16sp"
                     android:gravity="center_vertical"
-                    android:textColor="@android:color/white"
+                    android:layout_gravity="center"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="16sp"
                     android:textColorHint="@android:color/darker_gray"
                     android:text="@string/how_many_dice_are_you_rolling">
                 </TextView>
@@ -63,7 +78,7 @@
                 android:layout_weight="1"
                 android:layout_margin="4dp"
                 android:textStyle="bold"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textColor="@color/colorPrimary"
                 android:background="@drawable/small_btn_background"
                 android:text="1">
@@ -76,7 +91,7 @@
                 android:layout_weight="1"
                 android:layout_margin="4dp"
                 android:textStyle="bold"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textColor="@color/colorPrimary"
                 android:background="@drawable/small_btn_background"
                 android:text="2">
@@ -86,10 +101,10 @@
                 android:id="@+id/btnNumberOfDice3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="16sp"
                 android:layout_weight="1"
                 android:layout_margin="4dp"
                 android:textStyle="bold"
-                android:textSize="18sp"
                 android:textColor="@color/colorPrimary"
                 android:background="@drawable/small_btn_background"
                 android:text="3">
@@ -97,16 +112,17 @@
 
             <Button
                 android:id="@+id/btnNumberOfDice4"
+                android:textSize="16sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_margin="4dp"
                 android:textStyle="bold"
-                android:textSize="18sp"
                 android:textColor="@color/colorPrimary"
                 android:background="@drawable/small_btn_background"
                 android:text="4">
             </Button>
+
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -151,11 +167,10 @@
                     android:id="@+id/txtNumberOfSides"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:layout_gravity="center"
                     android:textSize="16sp"
-                    android:textStyle="bold"
+                    android:layout_gravity="center"
                     android:gravity="center_vertical"
-                    android:textColor="@android:color/white"
+                    android:textColor="@android:color/darker_gray"
                     android:textColorHint="@android:color/darker_gray"
                     android:text="@string/how_many_sides_does_each_die_have">
                 </TextView>
@@ -169,12 +184,12 @@
 
             <Button
                 android:id="@+id/btnSides4"
+                android:textSize="16sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_margin="4dp"
                 android:textStyle="bold"
-                android:textSize="18sp"
                 android:textColor="@color/colorPrimary"
                 android:background="@drawable/small_btn_background"
                 android:text="@string/_4">
@@ -187,7 +202,7 @@
                 android:layout_weight="1"
                 android:layout_margin="4dp"
                 android:textStyle="bold"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textColor="@color/colorPrimary"
                 android:background="@drawable/small_btn_background"
                 android:text="@string/_6">
@@ -198,9 +213,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textSize="16sp"
                 android:layout_margin="4dp"
                 android:textStyle="bold"
-                android:textSize="18sp"
                 android:textColor="@color/colorPrimary"
                 android:background="@drawable/small_btn_background"
                 android:text="@string/_8">
@@ -211,9 +226,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textSize="16sp"
                 android:layout_margin="4dp"
                 android:textStyle="bold"
-                android:textSize="18sp"
                 android:textColor="@color/colorPrimary"
                 android:background="@drawable/small_btn_background"
                 android:text="@string/_10">
@@ -224,9 +239,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textSize="16sp"
                 android:layout_margin="4dp"
                 android:textStyle="bold"
-                android:textSize="18sp"
                 android:textColor="@color/colorPrimary"
                 android:background="@drawable/small_btn_background"
                 android:text="@string/_12">
@@ -237,9 +252,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textSize="16sp"
                 android:layout_margin="4dp"
                 android:textStyle="bold"
-                android:textSize="18sp"
                 android:textColor="@color/colorPrimary"
                 android:background="@drawable/small_btn_background"
                 android:text="@string/_16">
@@ -274,10 +289,10 @@
                             android:layout_marginTop="20dp"
                             android:layout_marginBottom="10dp"
                             android:gravity="start"
+                            android:textSize="16sp"
                             android:paddingStart="4dp"
                             android:textColor="@color/colorPrimary"
                             android:textColorHint="@android:color/darker_gray"
-                            android:textSize="18sp"
                             android:textStyle="bold"
                             tools:ignore="RtlSymmetry"></TextView>
 
@@ -288,9 +303,9 @@
                             android:layout_marginTop="20dp"
                             android:layout_marginBottom="10dp"
                             android:gravity="start"
-                            android:textColor="@android:color/white"
+                            android:textColor="@android:color/darker_gray"
                             android:textColorHint="@android:color/darker_gray"
-                            android:textSize="18sp"></TextView>
+                            android:textSize="16sp"></TextView>
                     </LinearLayout>
 
                     <LinearLayout
@@ -304,10 +319,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="start"
+                            android:textSize="16sp"
                             android:paddingStart="4dp"
                             android:textColor="@color/colorPrimary"
                             android:textColorHint="@android:color/darker_gray"
-                            android:textSize="18sp"
                             android:textStyle="bold"
                             tools:ignore="RtlSymmetry"></TextView>
 
@@ -315,25 +330,28 @@
                             android:id="@+id/txtSumOfDie"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:textColor="@android:color/darker_gray"
                             android:layout_marginBottom="10dp"
                             android:gravity="start"
-                            android:textColor="@android:color/white"
                             android:textColorHint="@android:color/darker_gray"
-                            android:textSize="18sp"></TextView>
+                            android:textSize="16sp"></TextView>
                     </LinearLayout>
-    </LinearLayout>
+                </LinearLayout>
             </ScrollView>
         </LinearLayout>
-    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnRoll"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
-        app:backgroundTint="@color/colorPrimary"
-        android:tint="@android:color/black"
-        app:srcCompat="@drawable/ic_refresh"
-        tools:ignore="VectorDrawableCompat"/>
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/btnRoll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="16dp"
+                android:backgroundTint="@color/pink"
+                android:tint="@color/black"
+                app:srcCompat="@drawable/ic_baseline_refresh_24"
+                tools:ignore="VectorDrawableCompat" />
+        </FrameLayout>
+    </RelativeLayout>
 </LinearLayout>

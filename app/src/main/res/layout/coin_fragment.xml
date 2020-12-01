@@ -7,177 +7,281 @@
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <FrameLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:background="@drawable/shadow"
+        android:paddingTop="0.1dp"
+        android:paddingBottom="0.1dp">
 
-        <ScrollView
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/black"
+            android:orientation="vertical">
 
-            <LinearLayout
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="match_parent">
 
                 <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_margin="20dp"
-                    android:background="@android:color/black"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@android:color/black"
+                        android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
                             android:background="@android:color/black"
                             android:orientation="horizontal">
 
-                            <TextView
+                            <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:layout_gravity="center"
-                                android:layout_weight="1"
-                                android:textSize="16sp"
-                                android:textStyle="bold"
-                                android:gravity="center_vertical"
-                                android:textColor="@android:color/white"
-                                android:textColorHint="@android:color/darker_gray"
-                                android:text="@string/how_many_coins_are_you_flipping"></TextView>
+                                android:layout_margin="5dp"
+                                android:background="@android:color/black"
+                                android:orientation="horizontal">
 
-                            <EditText
-                                android:id="@+id/edtNumberOfCoins"
-                                android:layout_width="match_parent"
+                                <TextView
+                                    android:id="@+id/txtNumberOfSides"
+                                    android:layout_width="0dp"
+                                    android:layout_height="40dp"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="1"
+                                    android:gravity="center_vertical"
+                                    android:text="@string/how_many_coins_are_you_flipping"
+                                    android:textColor="@android:color/darker_gray"
+                                    android:textSize="16sp"></TextView>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="5dp"
+                            android:orientation="horizontal">
+
+                            <!--                        <TextView-->
+                            <!--                            android:layout_width="wrap_content"-->
+                            <!--                            android:layout_height="wrap_content"-->
+                            <!--                            android:text="1"-->
+                            <!--                            android:textSize="18sp"-->
+                            <!--                            android:textColor="@android:color/darker_gray"-->
+                            <!--                            android:id="@+id/textView2"-->
+                            <!--                            android:layout_gravity="center_vertical" />-->
+
+                            <!--                        <SeekBar-->
+                            <!--                            android:layout_width="wrap_content"-->
+                            <!--                            android:layout_height="wrap_content"-->
+                            <!--                            android:id="@+id/seekBar"-->
+                            <!--                            android:backgroundTint="@android:color/darker_gray"-->
+                            <!--                            android:layout_gravity="center_vertical"-->
+                            <!--                            android:layout_weight="1"-->
+                            <!--                            android:max="20"-->
+                            <!--                            android:indeterminate="false" />-->
+
+                            <!--                        <TextView-->
+                            <!--                            android:layout_width="wrap_content"-->
+                            <!--                            android:layout_height="wrap_content"-->
+                            <!--                            android:textSize="18sp"-->
+                            <!--                            android:text="20"-->
+                            <!--                            android:textColor="@android:color/darker_gray"-->
+                            <!--                            android:id="@+id/textView3"-->
+                            <!--                            android:layout_gravity="center_vertical" />-->
+
+                            <Button
+                                android:id="@+id/btnFlips1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/small_btn_background"
+                                android:text="1"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="16sp"
+                                android:textStyle="bold"></Button>
+
+                            <Button
+                                android:id="@+id/btnFlips2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/small_btn_background"
+                                android:text="2"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="16sp"
+                                android:textStyle="bold"></Button>
+
+                            <Button
+                                android:id="@+id/btnFlips3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/small_btn_background"
+                                android:text="3"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="16sp"
+                                android:textStyle="bold"></Button>
+
+                            <Button
+                                android:id="@+id/btnFlips4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/small_btn_background"
+                                android:text="4"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="16sp"
+                                android:textStyle="bold"></Button>
+
+                            <Button
+                                android:id="@+id/btnFlips5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/small_btn_background"
+                                android:text="5"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="16sp"
+                                android:textStyle="bold"></Button>
+
+                            <Button
+                                android:id="@+id/btnFlips6"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/small_btn_background"
+                                android:text="6"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="16sp"
+                                android:textStyle="bold"></Button>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="40dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/txtSides1"
+                                android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:ems="10"
-                                android:background="@android:color/transparent"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginBottom="10dp"
+                                android:gravity="start"
                                 android:textColor="@color/colorPrimary"
                                 android:textColorHint="@android:color/darker_gray"
-                                android:gravity="center"
-                                android:hint="@string/_0"
-                                android:textStyle="bold"
-                                android:textSize="18sp"
-                                android:layout_weight="3"
-                                android:inputType="number"/>
+                                android:textSize="16sp"
+                                android:textStyle="bold"></TextView>
+
+                            <TextView
+                                android:id="@+id/txtSides"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="20dp"
+                                android:layout_marginBottom="10dp"
+                                android:layout_weight="1"
+                                android:gravity="start"
+                                android:textColor="@android:color/darker_gray"
+                                android:textColorHint="@android:color/darker_gray"
+                                android:textSize="16sp"></TextView>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/txtHeads1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginBottom="10dp"
+                                android:gravity="start"
+                                android:textColor="@color/colorPrimary"
+                                android:textColorHint="@android:color/darker_gray"
+                                android:textSize="16sp"
+                                android:textStyle="bold"></TextView>
+
+                            <TextView
+                                android:id="@+id/txtHeads"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="20dp"
+                                android:layout_marginBottom="10dp"
+                                android:layout_weight="1"
+                                android:gravity="start"
+                                android:textColor="@android:color/darker_gray"
+                                android:textColorHint="@android:color/darker_gray"
+                                android:textSize="16sp"></TextView>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/txtTails1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginBottom="10dp"
+                                android:gravity="start"
+                                android:textColor="@color/colorPrimary"
+                                android:textColorHint="@android:color/darker_gray"
+                                android:textSize="16sp"
+                                android:textStyle="bold"></TextView>
+
+                            <TextView
+                                android:id="@+id/txtTails"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="20dp"
+                                android:layout_marginBottom="10dp"
+                                android:layout_weight="1"
+                                android:gravity="start"
+                                android:textColor="@android:color/darker_gray"
+                                android:textColorHint="@android:color/darker_gray"
+                                android:textSize="16sp"></TextView>
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
+            </ScrollView>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:orientation="vertical"
-                    android:layout_height="wrap_content">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/txtSides1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginBottom="10dp"
-                            android:gravity="start"
-                            android:textColor="@color/colorPrimary"
-                            android:textColorHint="@android:color/darker_gray"
-                            android:textSize="18sp"
-                            android:textStyle="bold"></TextView>
-
-                        <TextView
-                            android:id="@+id/txtSides"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="20dp"
-                            android:layout_marginBottom="10dp"
-                            android:layout_weight="1"
-                            android:gravity="start"
-                            android:textColor="@android:color/white"
-                            android:textColorHint="@android:color/darker_gray"
-                            android:textSize="18sp"></TextView>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/txtHeads1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginBottom="10dp"
-                            android:gravity="start"
-                            android:textColor="@color/colorPrimary"
-                            android:textColorHint="@android:color/darker_gray"
-                            android:textSize="18sp"
-                            android:textStyle="bold"></TextView>
-
-                        <TextView
-                            android:id="@+id/txtHeads"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="20dp"
-                            android:layout_marginBottom="10dp"
-                            android:layout_weight="1"
-                            android:gravity="start"
-                            android:textColor="@android:color/white"
-                            android:textColorHint="@android:color/darker_gray"
-                            android:textSize="18sp"></TextView>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/txtTails1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginBottom="10dp"
-                            android:gravity="start"
-                            android:textColor="@color/colorPrimary"
-                            android:textColorHint="@android:color/darker_gray"
-                            android:textSize="18sp"
-                            android:textStyle="bold"></TextView>
-
-                        <TextView
-                            android:id="@+id/txtTails"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="20dp"
-                            android:layout_marginBottom="10dp"
-                            android:layout_weight="1"
-                            android:gravity="start"
-                            android:textColor="@android:color/white"
-                            android:textColorHint="@android:color/darker_gray"
-                            android:textSize="18sp"></TextView>
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
-        </ScrollView>
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/btnFlip"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_margin="16dp"
-            android:tint="@android:color/black"
-            app:backgroundTint="@color/colorPrimary"
-            app:srcCompat="@drawable/ic_refresh"
-            tools:ignore="VectorDrawableCompat" />
-
-    </FrameLayout>
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/btnFlip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="16dp"
+                android:backgroundTint="@color/pink"
+                android:tint="@color/black"
+                app:srcCompat="@drawable/ic_baseline_refresh_24"
+                tools:ignore="VectorDrawableCompat" />
+        </FrameLayout>
+    </RelativeLayout>
 </LinearLayout>

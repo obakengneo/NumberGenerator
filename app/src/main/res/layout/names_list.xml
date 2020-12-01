@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal">
@@ -16,15 +17,24 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:padding="5dp"
+                android:src="@drawable/ic_baseline_person_24"
+                app:tint="@color/colorPrimary"></ImageView>
+
             <TextView
                 android:id="@+id/txtIndex"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_weight="1"
+                android:maxLines="1"
+                android:textSize="16sp"
                 android:gravity="center"
                 android:textColor="@android:color/white"
-                android:textSize="18sp"
                 android:textStyle="normal"></TextView>
 
             <TextView
@@ -36,17 +46,18 @@
                 android:ellipsize="end"
                 android:gravity="center_vertical"
                 android:maxLines="1"
-                android:textColor="@android:color/white"
-                android:textSize="18sp"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="16sp"
                 android:textStyle="normal"></TextView>
 
             <ImageView
-                android:id="@+id/imgPerson"
+                android:id="@+id/imgDelete"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
                 android:padding="10dp"
-                android:src="@drawable/ic_baseline_delete_forever_24"></ImageView>
+                android:src="@drawable/ic_baseline_delete_forever_24"
+                app:tint="@color/red"></ImageView>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

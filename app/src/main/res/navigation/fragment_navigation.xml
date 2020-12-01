@@ -1,20 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/fragment_navigation" app:startDestination="@id/randomFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fragment_navigation"
+    app:startDestination="@id/randomFragment">
 
-    <fragment android:id="@+id/randomFragment" android:name="com.example.numbergenerator.RandomFragment"
-        android:label="Lotto">
-    </fragment>
+    <fragment
+        android:id="@+id/randomFragment"
+        android:name="com.example.numbergenerator.presentation.RandomFragment"
+        android:label="Lotto"></fragment>
 
-    <fragment android:id="@+id/diceFragment" android:name="com.example.numbergenerator.DiceFragment"
-        android:label="Dice">
-    </fragment>
+    <fragment
+        android:id="@+id/gamesFragment"
+        android:name="com.example.numbergenerator.presentation.GamesFragment"
+        android:label="Games"></fragment>
 
-    <fragment android:id="@+id/coinFragment" android:name="com.example.numbergenerator.CoinFragment"
-        android:label="Coin">
-    </fragment>
+    <fragment
+        android:id="@+id/dateFragment"
+        android:name="com.example.numbergenerator.presentation.DateTimeFragment"
+        android:label="Date"></fragment>
 
-    <fragment android:id="@+id/teamsFragment" android:name="com.example.numbergenerator.TeamsFragment"
-        android:label="Teams">
-    </fragment>
+    <fragment
+        android:id="@+id/teamsFragment"
+        android:name="com.example.numbergenerator.presentation.TeamsFragment"
+        android:label="Teams"></fragment>
+
+    <fragment
+        android:id="@+id/passwordFragment"
+        android:name="com.example.numbergenerator.presentation.PasswordFragment"
+        android:label="Password"></fragment>
 </navigation>
