@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.numbergenerator.R
 import com.example.numbergenerator.adapter.CardsAdapter
 import com.example.numbergenerator.model.Card
-import com.example.numbergenerator.util.ReusableMethods
+import com.example.numbergenerator.util.Utility
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
@@ -62,9 +62,8 @@ class CardFragment : Fragment() {
     }
 
     private fun getCards(numberOfCards: Int): ArrayList<Card> {
-        val reusableMethods = ReusableMethods()
         val cards: ArrayList<Card> = ArrayList()
-        val randomNumbers = reusableMethods.getRandomNumbersWithNoDuplicates(51, numberOfCards)
+        val randomNumbers = Utility().getRandomNumbersWithNoDuplicates(51, numberOfCards)
 
         for (i in 1..randomNumbers.size) {
             cards.add(Card(thumbImages[randomNumbers[i - 1]]))

@@ -5,12 +5,11 @@ import android.preference.PreferenceManager
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.ListView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.numbergenerator.R
 import com.example.numbergenerator.adapter.TeamsAdapter
 import com.example.numbergenerator.model.TeamsModel
-import com.example.numbergenerator.util.ReusableMethods
+import com.example.numbergenerator.util.Utility
 
 class DisplayTeams : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,22 +22,20 @@ class DisplayTeams : AppCompatActivity() {
 
     private fun generateTeams() {
         val prefs = PreferenceManager.getDefaultSharedPreferences(this)
-        val reusableMethods = ReusableMethods()
-        val names = reusableMethods.getArrayList("Names", this)
         val lstTeams = findViewById<ListView>(R.id.lstTeams)
-
-        var index: Int
+        val names = Utility().getArrayList("Names", this)
         val list = mutableListOf<TeamsModel>()
         val num = names!!.size + 1
         val numberOfTeams = prefs.getInt("Teams", 1)
         val numberOfMembers = getNumberOfMembersInTeam(num, numberOfTeams)
+        var index: Int
 
         if (names.size > 0) {
             for (i in 1..numberOfTeams) {
                 val listOfTeam: MutableList<String> = ArrayList()
 
                 for (x in 1..numberOfMembers) {
-                    index = reusableMethods.getRandom(names)
+                    index = Utility().getRandom(names)
 
                     try {
                         if (index == names.size) {
@@ -88,8 +85,8 @@ class DisplayTeams : AppCompatActivity() {
             generateTeams()
         }
 
-        if (item.itemId == R.id.share) {
-            Toast.makeText(this, "To be shared!", Toast.LENGTH_SHORT).show()
+        if (item.itemId == R.id.copy) {
+            Utility().displayToast(this, "Copied to clipboard!")
         }
         return super.onOptionsItemSelected(item)
     }

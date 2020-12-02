@@ -23,13 +23,13 @@ class DateTimeFragment : Fragment() {
         val tabs: TabLayout = view.findViewById(R.id.tabsDateTime)
         val adapter = MyViewPagerAdapter(childFragmentManager)
 
+        setUpToolBar()
+
         adapter.addFragment(DateFragment(), "Date")
         adapter.addFragment(TimeFragment(), "Time")
 
         viewPager.adapter = adapter
         tabs.setupWithViewPager(viewPager)
-
-        setUpToolBar()
 
         return view
     }
@@ -42,5 +42,7 @@ class DateTimeFragment : Fragment() {
     private fun setUpToolBar() {
         val actionBar = (activity as AppCompatActivity).supportActionBar
         actionBar!!.title = "Date/Time"
+        actionBar.setDisplayHomeAsUpEnabled(true)
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_baseline_menu_24)
     }
 }

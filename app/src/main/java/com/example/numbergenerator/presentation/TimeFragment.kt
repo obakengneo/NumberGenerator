@@ -1,21 +1,25 @@
 package com.example.numbergenerator.presentation
 
 import android.app.TimePickerDialog
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context.CLIPBOARD_SERVICE
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.SeekBar
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.numbergenerator.R
+import com.example.numbergenerator.util.Utility
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.time.LocalTime
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 
 class TimeFragment : Fragment() {
+
+    lateinit var txtDateResults: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,8 +31,9 @@ class TimeFragment : Fragment() {
         val edtTimeTo = view.findViewById<TextView>(R.id.edtChooseTimeTo)
         val progressOnBar = view.findViewById<TextView>(R.id.txtTimesCount)
         val seekBar = view.findViewById<SeekBar>(R.id.sBarTimesCount)
-        val txtDateResults = view.findViewById<TextView>(R.id.txtTimeResults)
         val btnGenerate = view.findViewById<FloatingActionButton>(R.id.btnGenerateTimes)
+
+        txtDateResults = view.findViewById<TextView>(R.id.txtTimeResults)
 
         edtTimeFrom.setOnClickListener {
             setTimeToTextView(edtTimeFrom)
@@ -50,13 +55,10 @@ class TimeFragment : Fragment() {
                         ) + "\n"
                     )
                 }
+
                 txtDateResults.text = builder.toString()
             } else {
-                Toast.makeText(
-                    this.requireContext(),
-                    "Please select both times!",
-                    Toast.LENGTH_LONG
-                ).show()
+                Utility().displayToast(this.requireContext(), "Please select both times!")
             }
         }
 
@@ -83,35 +85,69 @@ class TimeFragment : Fragment() {
     }
 
     private fun setTimeToTextView(txtView: TextView) {
+        var time: String
+
         val timePickerDialog = TimePickerDialog(
             this.requireContext(),
             { _, hourOfDay, minutes ->
-                txtView.text = "$hourOfDay:$minutes"
+                time = "${convertZero(hourOfDay)}:${convertZero(minutes)}"
+                txtView.text = time
             }, 0, 0, true
         )
         timePickerDialog.show()
     }
 
     private fun generateRandomTimes(fromTime: String, toTime: String): String {
-        val time1 = LocalTime.of(
-            splitStringIntoList(fromTime)[0].toInt(),
-            splitStringIntoList(fromTime)[1].toInt()
-        )
-        val time2 = LocalTime.of(
-            splitStringIntoList(toTime)[0].toInt(),
-            splitStringIntoList(fromTime)[1].toInt()
-        )
-        val secondOfDayTime1 = time1.toSecondOfDay()
-        val secondOfDayTime2 = time2.toSecondOfDay()
-        val random = Random()
-        val randomSecondOfDay: Int =
-            secondOfDayTime1 + random.nextInt(secondOfDayTime2 - secondOfDayTime1)
-        val randomLocalTime = LocalTime.ofSecondOfDay(randomSecondOfDay.toLong())
+        try {
+            val time1 = LocalTime.of(
+                Utility().splitStringIntoList(fromTime, ':')[0].toInt(),
+                Utility().splitStringIntoList(fromTime, ':')[1].toInt()
+            )
+            val time2 = LocalTime.of(
+                Utility().splitStringIntoList(toTime, ':')[0].toInt(),
+                Utility().splitStringIntoList(fromTime, ':')[1].toInt()
+            )
+            val secondOfDayTime1 = time1.toSecondOfDay()
+            val secondOfDayTime2 = time2.toSecondOfDay()
+            val random = Random()
+            val randomSecondOfDay: Int =
+                secondOfDayTime1 + random.nextInt(secondOfDayTime2 - secondOfDayTime1)
+            val randomLocalTime = LocalTime.ofSecondOfDay(randomSecondOfDay.toLong())
 
-        return randomLocalTime.toString()
+            return randomLocalTime.format(DateTimeFormatter.ofPattern("HH:mm"))
+        } catch (e: Exception) {
+            Utility().displayToast(
+                this.requireContext(),
+                "Make sure Time from comes before Time to!"
+            )
+            return ""
+        }
     }
 
-    private fun splitStringIntoList(str: String): List<String> {
-        return str.split(":").map { it.trim() }
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_copyto_clipboard, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.copy) {
+            val myClipboard: ClipboardManager =
+                activity?.getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
+            val myClip = ClipData.newPlainText("text", txtDateResults.text)
+
+            myClipboard.setPrimaryClip(myClip)
+
+            Utility().displayToast(this.requireContext(), "Results copied to clipboard!")
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun convertZero(number: Int): String {
+        if (number == 0) {
+            return "00"
+        } else if (number < 10) {
+            return "0$number"
+        }
+        return number.toString()
     }
 }

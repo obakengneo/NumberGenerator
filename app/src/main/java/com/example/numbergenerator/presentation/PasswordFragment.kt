@@ -1,45 +1,47 @@
 package com.example.numbergenerator.presentation
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.CheckBox
 import android.widget.SeekBar
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.numbergenerator.R
+import com.example.numbergenerator.util.Utility
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlin.random.Random
 
 class PasswordFragment : Fragment() {
+    private lateinit var txtPassword: TextView
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view: View = inflater.inflate(R.layout.password_fragment, container, false)
-        setUpToolBar()
-
         val seek = view.findViewById<SeekBar>(R.id.sBarLength)
-        val txtPassword = view.findViewById<TextView>(R.id.txtPassword)
         val progressOnBar = view.findViewById<TextView>(R.id.txtProgressOnBar)
         val btnGenerate = view.findViewById<FloatingActionButton>(R.id.btnGeneratePassword)
         val chkUpperCase = view.findViewById<CheckBox>(R.id.chkUpperCase)
         val chkLowerCase = view.findViewById<CheckBox>(R.id.chkLowerCase)
         val chkDigits = view.findViewById<CheckBox>(R.id.chkDigits)
         val chkSymbols = view.findViewById<CheckBox>(R.id.chkSymbols)
+        txtPassword = view.findViewById<TextView>(R.id.txtPassword)
+
+        setUpToolBar()
 
         btnGenerate.setOnClickListener {
             when {
                 !chkDigits.isChecked && !chkUpperCase.isChecked && !chkLowerCase.isChecked && !chkSymbols.isChecked -> {
-                    Toast.makeText(
+                    Utility().displayToast(
                         this.requireContext(),
-                        "Please ensure at least one option is enabled!",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                        "Please ensure at least one option is enabled!"
+                    )
                 }
                 else -> {
                     txtPassword.text = generateRandomPassword(
@@ -78,6 +80,8 @@ class PasswordFragment : Fragment() {
     private fun setUpToolBar() {
         val actionBar = (activity as AppCompatActivity).supportActionBar
         actionBar!!.title = "Password"
+        actionBar.setDisplayHomeAsUpEnabled(true)
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_baseline_menu_24)
     }
 
     private fun generateRandomPassword(
@@ -115,7 +119,23 @@ class PasswordFragment : Fragment() {
         for (i in sb.length until max_length) {
             sb.append(allowedChars[rn.nextInt(allowedChars.length)])
         }
-
         return sb.toString()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_copyto_clipboard, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.copy) {
+            val myClipboard: ClipboardManager =
+                activity?.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+            val myClip = ClipData.newPlainText("text", txtPassword.text)
+            myClipboard.setPrimaryClip(myClip)
+
+            Utility().displayToast(this.requireContext(), "Results copied to clipboard!")
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

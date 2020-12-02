@@ -1,20 +1,26 @@
 package com.example.numbergenerator.presentation
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.numbergenerator.R
-import com.example.numbergenerator.util.ReusableMethods
+import com.example.numbergenerator.util.Utility
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class DiceFragment : Fragment() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    private lateinit var txtRolls: TextView
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         val view: View = inflater.inflate(R.layout.dice_fragment, container, false)
         val btnRoll = view.findViewById<FloatingActionButton>(R.id.btnRoll)
         val btnNumberOfDice1 = view.findViewById<Button>(R.id.btnNumberOfDice1)
@@ -27,6 +33,7 @@ class DiceFragment : Fragment() {
         val btnSides8 = view.findViewById<Button>(R.id.btnSides8)
         val btnSides12 = view.findViewById<Button>(R.id.btnSides12)
         val btnSides16 = view.findViewById<Button>(R.id.btnSides16)
+        txtRolls = view.findViewById<TextView>(R.id.txtRolls)
         var numberOfDice = 0
         var numberOfSides = 0
 
@@ -203,8 +210,6 @@ class DiceFragment : Fragment() {
     }
 
     private fun generateResults(view: View, numberOfDice: Int, numberOfSides: Int) {
-        val reusableMethods = ReusableMethods()
-        val txtRolls = view.findViewById<TextView>(R.id.txtRolls)
         val txtSumOfDie = view.findViewById<TextView>(R.id.txtSumOfDie)
         val txtRollsResults = view.findViewById<TextView>(R.id.txtRolls1)
         val txtSumOfDieResults = view.findViewById<TextView>(R.id.txtSumOfDie1)
@@ -213,7 +218,7 @@ class DiceFragment : Fragment() {
 
         for (i in 1..numberOfDice) {
             if (numberOfSides > 3) {
-                val num = reusableMethods.rand(1, numberOfSides)
+                val num = Utility().rand(1, numberOfSides)
 
                 sum += num
                 rolls.add(num.toString())
@@ -236,11 +241,27 @@ class DiceFragment : Fragment() {
 
             rolls.clear()
         } else {
-            Toast.makeText(
+            Utility().displayToast(
                 this.requireContext(),
-                "Please select number of dices and sides you need!",
-                Toast.LENGTH_SHORT
-            ).show()
+                "Please select number of dices and sides you need!"
+            )
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_copyto_clipboard, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.copy) {
+            val myClipboard: ClipboardManager =
+                activity?.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+            val myClip = ClipData.newPlainText("text", txtRolls.text)
+            myClipboard.setPrimaryClip(myClip)
+
+            Utility().displayToast(this.requireContext(), "Results copied to clipboard!")
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

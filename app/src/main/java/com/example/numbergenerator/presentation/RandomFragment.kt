@@ -1,18 +1,23 @@
 package com.example.numbergenerator.presentation
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.*
+import android.view.*
+import android.widget.CheckBox
+import android.widget.EditText
+import android.widget.SeekBar
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.numbergenerator.R
-import com.example.numbergenerator.util.ReusableMethods
+import com.example.numbergenerator.util.Utility
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
 class RandomFragment : Fragment() {
+    private lateinit var result: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -21,11 +26,12 @@ class RandomFragment : Fragment() {
     ): View? {
 
         val view: View = inflater.inflate(R.layout.random_fragment, container, false)
-        setUpToolBar()
-
         val seek = view.findViewById<SeekBar>(R.id.sBarNumberCount)
         val progressOnBar = view.findViewById<TextView>(R.id.txtNumbersCount)
         val btnGetRange = view.findViewById<FloatingActionButton>(R.id.btnEnter)
+        result = view.findViewById<TextView>(R.id.txtValue)
+
+        setUpToolBar()
 
         btnGetRange.setOnClickListener {
             generateNumbers(seek.progress, view)
@@ -57,11 +63,11 @@ class RandomFragment : Fragment() {
     private fun setUpToolBar() {
         val actionBar = (activity as AppCompatActivity).supportActionBar
         actionBar!!.title = "Numbers"
+        actionBar.setDisplayHomeAsUpEnabled(true)
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_baseline_menu_24)
     }
 
     private fun generateNumbers(count: Int, view: View) {
-        val reusableMethods = ReusableMethods()
-        val result = view.findViewById<TextView>(R.id.txtValue)
         val edtFrom = view.findViewById<EditText>(R.id.edtFrom)
         val edtTo = view.findViewById<EditText>(R.id.edtTo)
         val allowDuplicates = view.findViewById<CheckBox>(R.id.chkAllowDuplicates)
@@ -78,38 +84,51 @@ class RandomFragment : Fragment() {
                     if (secondValue - firstValue > count) {
                         if (!allowDuplicates.isChecked) {
                             do {
-                                num = reusableMethods.rand(firstValue, secondValue)
-                            } while (!reusableMethods.duplicate(list, num))
+                                num = Utility().rand(firstValue, secondValue)
+                            } while (!Utility().duplicate(list, num))
 
                             list.add(num)
                         } else {
-                            num = reusableMethods.rand(firstValue, secondValue)
+                            num = Utility().rand(firstValue, secondValue)
                             list.add(num)
                         }
 
-                        result.text = reusableMethods.getCommaSeperatedString(list)
+                        result.text = Utility().getCommaSeparatedString(list)
                     } else {
-                        Toast.makeText(
+                        Utility().displayToast(
                             this.requireContext(),
-                            "Please make sure the amount of numbers you need are within the range of $firstValue and $secondValue!",
-                            Toast.LENGTH_LONG
-                        ).show()
+                            "Please make sure the amount of numbers you need are within the range of $firstValue and $secondValue!"
+                        )
                         break
                     }
                 }
             } else {
-                Toast.makeText(
+                Utility().displayToast(
                     this.requireContext(),
-                    "The Minimum range number cannot be greater than the Maximum range number!",
-                    Toast.LENGTH_LONG
-                ).show()
+                    "The Minimum range number cannot be greater than the Maximum range number!"
+                )
             }
         } catch (e: Exception) {
-            Toast.makeText(
-                this.requireContext(),
-                "Please fill in a valid number in all the fields!",
-                Toast.LENGTH_LONG
-            ).show()
+            Utility().displayToast(
+                this.requireContext(), "Please fill in a valid number in all the fields!"
+            )
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_copyto_clipboard, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.copy) {
+            val myClipboard: ClipboardManager =
+                activity?.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+            val myClip = ClipData.newPlainText("text", result.text)
+            myClipboard.setPrimaryClip(myClip)
+
+            Utility().displayToast(this.requireContext(), "Results copied to clipboard!")
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

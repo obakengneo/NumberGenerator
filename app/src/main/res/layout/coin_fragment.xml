@@ -71,34 +71,6 @@
                             android:layout_margin="5dp"
                             android:orientation="horizontal">
 
-                            <!--                        <TextView-->
-                            <!--                            android:layout_width="wrap_content"-->
-                            <!--                            android:layout_height="wrap_content"-->
-                            <!--                            android:text="1"-->
-                            <!--                            android:textSize="18sp"-->
-                            <!--                            android:textColor="@android:color/darker_gray"-->
-                            <!--                            android:id="@+id/textView2"-->
-                            <!--                            android:layout_gravity="center_vertical" />-->
-
-                            <!--                        <SeekBar-->
-                            <!--                            android:layout_width="wrap_content"-->
-                            <!--                            android:layout_height="wrap_content"-->
-                            <!--                            android:id="@+id/seekBar"-->
-                            <!--                            android:backgroundTint="@android:color/darker_gray"-->
-                            <!--                            android:layout_gravity="center_vertical"-->
-                            <!--                            android:layout_weight="1"-->
-                            <!--                            android:max="20"-->
-                            <!--                            android:indeterminate="false" />-->
-
-                            <!--                        <TextView-->
-                            <!--                            android:layout_width="wrap_content"-->
-                            <!--                            android:layout_height="wrap_content"-->
-                            <!--                            android:textSize="18sp"-->
-                            <!--                            android:text="20"-->
-                            <!--                            android:textColor="@android:color/darker_gray"-->
-                            <!--                            android:id="@+id/textView3"-->
-                            <!--                            android:layout_gravity="center_vertical" />-->
-
                             <Button
                                 android:id="@+id/btnFlips1"
                                 android:layout_width="wrap_content"
@@ -171,6 +143,85 @@
                                 android:textSize="16sp"
                                 android:textStyle="bold"></Button>
                         </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="5dp"
+                            android:orientation="horizontal">
+
+                            <Button
+                                android:id="@+id/btnFlips7"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/small_btn_background"
+                                android:text="7"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="16sp"
+                                android:textStyle="bold"></Button>
+
+                            <Button
+                                android:id="@+id/btnFlips8"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/small_btn_background"
+                                android:text="@string/_8"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="16sp"
+                                android:textStyle="bold"></Button>
+
+                            <Button
+                                android:id="@+id/btnFlips9"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/small_btn_background"
+                                android:text="9"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="16sp"
+                                android:textStyle="bold"></Button>
+
+                            <Button
+                                android:id="@+id/btnFlips10"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/small_btn_background"
+                                android:text="10"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="16sp"
+                                android:textStyle="bold"></Button>
+
+                            <Button
+                                android:id="@+id/btnFlips11"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/small_btn_background"
+                                android:text="11"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="16sp"
+                                android:textStyle="bold"></Button>
+
+                            <Button
+                                android:id="@+id/btnFlips12"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/small_btn_background"
+                                android:text="12"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="16sp"
+                                android:textStyle="bold"></Button>
+                        </LinearLayout>
                     </LinearLayout>
 
                     <LinearLayout
@@ -206,7 +257,7 @@
                                 android:gravity="start"
                                 android:textColor="@android:color/darker_gray"
                                 android:textColorHint="@android:color/darker_gray"
-                                android:textSize="16sp"></TextView>
+                                android:textSize="16sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -224,7 +275,7 @@
                                 android:textColor="@color/colorPrimary"
                                 android:textColorHint="@android:color/darker_gray"
                                 android:textSize="16sp"
-                                android:textStyle="bold"></TextView>
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:id="@+id/txtHeads"
@@ -236,7 +287,7 @@
                                 android:gravity="start"
                                 android:textColor="@android:color/darker_gray"
                                 android:textColorHint="@android:color/darker_gray"
-                                android:textSize="16sp"></TextView>
+                                android:textSize="16sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -254,7 +305,7 @@
                                 android:textColor="@color/colorPrimary"
                                 android:textColorHint="@android:color/darker_gray"
                                 android:textSize="16sp"
-                                android:textStyle="bold"></TextView>
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:id="@+id/txtTails"
@@ -266,7 +317,7 @@
                                 android:gravity="start"
                                 android:textColor="@android:color/darker_gray"
                                 android:textColorHint="@android:color/darker_gray"
-                                android:textSize="16sp"></TextView>
+                                android:textSize="16sp" />
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>

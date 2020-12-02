@@ -10,7 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import com.example.numbergenerator.R
 import com.example.numbergenerator.model.Model
-import com.example.numbergenerator.util.ReusableMethods
+import com.example.numbergenerator.util.Utility
 
 class NamesAdapter(var mCtx: Context, var resources: Int, var items: List<Model>) :
     ArrayAdapter<Model>(mCtx, resources, items) {
@@ -21,7 +21,7 @@ class NamesAdapter(var mCtx: Context, var resources: Int, var items: List<Model>
         val name: TextView = view.findViewById(R.id.txtName)
         val index: TextView = view.findViewById(R.id.txtIndex)
         val imgDelete: ImageView = view.findViewById(R.id.imgDelete)
-        val reusableMethods = ReusableMethods()
+        val reusableMethods = Utility()
 
         val mItem: Model = items[position]
 

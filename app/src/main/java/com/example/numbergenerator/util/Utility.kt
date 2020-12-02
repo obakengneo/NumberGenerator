@@ -1,14 +1,16 @@
 package com.example.numbergenerator.util
 
 import android.app.Activity
+import android.content.Context
 import android.preference.PreferenceManager
+import android.widget.Toast
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.lang.reflect.Type
 import java.util.*
 import kotlin.random.Random
 
-class ReusableMethods {
+class Utility {
     fun rand(start: Int, end: Int): Int {
         val rand = Random(System.nanoTime())
         return (start..end).random(rand)
@@ -21,12 +23,16 @@ class ReusableMethods {
         return true
     }
 
-    fun getCommaSeperatedString(list: MutableList<Int>): String {
+    fun getCommaSeparatedString(list: MutableList<Int>): String {
         val joiner = StringJoiner(", ")
         for (item in list) {
             joiner.add(item.toString())
         }
         return joiner.toString()
+    }
+
+    fun splitStringIntoList(str: String, char: Char): List<String> {
+        return str.split(char).map { it.trim() }
     }
 
     fun getRandomNumbersWithNoDuplicates(range: Int, length: Int): IntArray {
@@ -82,7 +88,7 @@ class ReusableMethods {
         val gson = Gson()
         val json = gson.toJson(list)
         editor.putString(key, json)
-        editor.apply() // This line is IMPORTANT !!!
+        editor.apply()
     }
 
     fun getArrayList(key: String, activity: Activity): MutableList<String?>? {
@@ -90,6 +96,15 @@ class ReusableMethods {
         val gson = Gson()
         val json = prefs.getString(key, null)
         val type: Type = object : TypeToken<MutableList<String?>?>() {}.type
+
         return gson.fromJson(json, type)
+    }
+
+    fun displayToast(context: Context, message: String) {
+        Toast.makeText(
+            context,
+            message,
+            Toast.LENGTH_LONG
+        ).show()
     }
 }

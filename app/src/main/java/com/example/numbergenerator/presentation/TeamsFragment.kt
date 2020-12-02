@@ -14,7 +14,7 @@ import androidx.fragment.app.Fragment
 import com.example.numbergenerator.R
 import com.example.numbergenerator.adapter.NamesAdapter
 import com.example.numbergenerator.model.Model
-import com.example.numbergenerator.util.ReusableMethods
+import com.example.numbergenerator.util.Utility
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
@@ -29,8 +29,7 @@ class TeamsFragment : Fragment() {
         val edtName = view.findViewById<EditText>(R.id.edtName)
         val txtClearText = view.findViewById<TextView>(R.id.txtClearList)
         val btnGenerate = view.findViewById<FloatingActionButton>(R.id.btnGenerateTeams)
-        val reusableMethods = ReusableMethods()
-        var namesList = reusableMethods.getArrayList("Names", this.requireActivity())
+        var namesList = Utility().getArrayList("Names", this.requireActivity())
 
         setUpToolBar()
 
@@ -47,15 +46,14 @@ class TeamsFragment : Fragment() {
                     populateListView(namesList, view)
                     edtName.text.clear()
                 } else {
-                    Toast.makeText(this.requireContext(), "Please enter name!", Toast.LENGTH_SHORT)
-                        .show()
+                    Utility().displayToast(this.requireContext(), "Please enter name!")
                 }
             } catch (e: Exception) {
                 val list: MutableList<String?> = ArrayList()
 
                 list.add(name)
-                reusableMethods.saveArrayList(list, "Names", this.requireActivity())
-                namesList = reusableMethods.getArrayList("Names", this.requireActivity())
+                Utility().saveArrayList(list, "Names", this.requireActivity())
+                namesList = Utility().getArrayList("Names", this.requireActivity())
                 edtName.text.clear()
                 populateListView(namesList, view)
             }
@@ -66,14 +64,13 @@ class TeamsFragment : Fragment() {
                 if (namesList!!.size > 1) {
                     showNumberPickerDialog()
                 } else {
-                    Toast.makeText(
+                    Utility().displayToast(
                         this.requireContext(),
-                        "Please make sure you have more than one name in your list!",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                        "Please make sure you have more than one name in your list!"
+                    )
                 }
             } catch (e: Exception) {
-                Toast.makeText(this.requireContext(), "List is empty!", Toast.LENGTH_SHORT).show()
+                Utility().displayToast(this.requireContext(), "List is empty!")
             }
         }
 
@@ -93,6 +90,8 @@ class TeamsFragment : Fragment() {
     private fun setUpToolBar() {
         val actionBar = (activity as AppCompatActivity).supportActionBar
         actionBar!!.title = "Teams"
+        actionBar.setDisplayHomeAsUpEnabled(true)
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_baseline_menu_24)
     }
 
     private fun showNumberPickerDialog() {
@@ -129,7 +128,6 @@ class TeamsFragment : Fragment() {
     private fun populateListView(namesList: MutableList<String?>?, view: View) {
         val list = mutableListOf<Model>()
         val lstNames = view.findViewById<ListView>(R.id.lstNames)
-        val reusableMethods = ReusableMethods()
         var count = 1
 
         if (namesList != null) {
@@ -140,7 +138,7 @@ class TeamsFragment : Fragment() {
         }
 
         lstNames.adapter = NamesAdapter(this.requireContext(), R.layout.names_list, list)
-        reusableMethods.saveArrayList(namesList, "Names", this.requireActivity())
+        Utility().saveArrayList(namesList, "Names", this.requireActivity())
     }
 }
 

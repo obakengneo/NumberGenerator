@@ -1,15 +1,16 @@
 package com.example.numbergenerator.presentation
 
 import android.app.DatePickerDialog
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.SeekBar
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.numbergenerator.R
+import com.example.numbergenerator.util.Utility
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.text.SimpleDateFormat
 import java.time.LocalDate
@@ -20,6 +21,7 @@ import java.util.concurrent.ThreadLocalRandom
 
 
 class DateFragment : Fragment() {
+    private lateinit var txtDateResults: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,10 +31,10 @@ class DateFragment : Fragment() {
         val view: View = inflater.inflate(R.layout.date_fragment, container, false)
         val edtDateFrom = view.findViewById<TextView>(R.id.edtChooseDateFrom)
         val edtDateTo = view.findViewById<TextView>(R.id.edtChooseDateTo)
-        val txtDateResults = view.findViewById<TextView>(R.id.txtDateResults)
         val progressOnBar = view.findViewById<TextView>(R.id.txtTimesCount)
         val seekBar = view.findViewById<SeekBar>(R.id.sBarTimesCount)
         val btnGenerate = view.findViewById<FloatingActionButton>(R.id.btnGenerateDate)
+        txtDateResults = view.findViewById<TextView>(R.id.txtDateResults)
 
         edtDateFrom.setOnClickListener {
             setDateToTextView(edtDateFrom)
@@ -56,11 +58,10 @@ class DateFragment : Fragment() {
                 }
                 txtDateResults.text = builder.toString()
             } else {
-                Toast.makeText(
+                Utility().displayToast(
                     this.requireContext(),
-                    "Please select both dates!",
-                    Toast.LENGTH_LONG
-                ).show()
+                    "Please select both dates!"
+                )
             }
         }
 
@@ -94,7 +95,7 @@ class DateFragment : Fragment() {
                 cal.set(Calendar.MONTH, monthOfYear)
                 cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
 
-                val myFormat = "dd.MM.yyyy" // mention the format you need
+                val myFormat = "dd/MM/yyyy" // mention the format you need
                 val sdf = SimpleDateFormat(myFormat, Locale.US)
                 txtDate.text = sdf.format(cal.time)
             }
@@ -109,30 +110,43 @@ class DateFragment : Fragment() {
     private fun generateRandomDates(fromDate: String, toDate: String): String {
         try {
             val from: LocalDate = LocalDate.of(
-                splitStringIntoList(fromDate)[2].toInt(),
-                splitStringIntoList(fromDate)[1].toInt(),
-                splitStringIntoList(fromDate)[0].toInt()
+                Utility().splitStringIntoList(fromDate, '/')[2].toInt(),
+                Utility().splitStringIntoList(fromDate, '/')[1].toInt(),
+                Utility().splitStringIntoList(fromDate, '/')[0].toInt()
             )
             val to: LocalDate = LocalDate.of(
-                splitStringIntoList(toDate)[2].toInt(),
-                splitStringIntoList(toDate)[1].toInt(),
-                splitStringIntoList(toDate)[0].toInt()
+                Utility().splitStringIntoList(toDate, '/')[2].toInt(),
+                Utility().splitStringIntoList(toDate, '/')[1].toInt(),
+                Utility().splitStringIntoList(toDate, '/')[0].toInt()
             )
             val days: Long = from.until(to, ChronoUnit.DAYS)
             val randomDays: Long = ThreadLocalRandom.current().nextLong(days + 1)
             val randomDate: LocalDate = from.plusDays(randomDays)
+
             return randomDate.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
         } catch (e: Exception) {
-            Toast.makeText(
+            Utility().displayToast(
                 this.requireContext(),
-                "Make sure Date from comes before Date to!",
-                Toast.LENGTH_LONG
-            ).show()
+                "Make sure Date from comes before Date to!"
+            )
             return ""
         }
     }
 
-    private fun splitStringIntoList(str: String): List<String> {
-        return str.split(".").map { it.trim() }
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_copyto_clipboard, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.copy) {
+            val myClipboard: ClipboardManager =
+                activity?.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+            val myClip = ClipData.newPlainText("text", txtDateResults.text)
+
+            myClipboard.setPrimaryClip(myClip)
+            Utility().displayToast(this.requireContext(), "Results copied to clipboard!")
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

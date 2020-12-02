@@ -43,5 +43,7 @@ class GamesFragment : Fragment() {
     private fun setUpToolBar() {
         val actionBar = (activity as AppCompatActivity).supportActionBar
         actionBar!!.title = "Games"
+        actionBar.setDisplayHomeAsUpEnabled(true)
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_baseline_menu_24)
     }
 }
