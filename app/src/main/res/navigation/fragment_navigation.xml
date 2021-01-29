@@ -2,30 +2,30 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/fragment_navigation"
-    app:startDestination="@id/randomFragment">
+    app:startDestination="@id/passwordFragment">
 
     <fragment
-        android:id="@+id/randomFragment"
-        android:name="com.example.numbergenerator.presentation.RandomFragment"
-        android:label="Lotto"></fragment>
+        android:id="@+id/educationFragment"
+        android:name="com.obakengneo.numbergenerator.presentation.EducationFragment"
+        android:label="Education" />
 
     <fragment
         android:id="@+id/gamesFragment"
-        android:name="com.example.numbergenerator.presentation.GamesFragment"
-        android:label="Games"></fragment>
+        android:name="com.obakengneo.numbergenerator.presentation.GamesFragment"
+        android:label="Games" />
 
     <fragment
         android:id="@+id/dateFragment"
-        android:name="com.example.numbergenerator.presentation.DateTimeFragment"
-        android:label="Date"></fragment>
+        android:name="com.obakengneo.numbergenerator.presentation.DateTimeFragment"
+        android:label="Date" />
 
     <fragment
         android:id="@+id/teamsFragment"
-        android:name="com.example.numbergenerator.presentation.TeamsFragment"
-        android:label="Teams"></fragment>
+        android:name="com.obakengneo.numbergenerator.presentation.TeamsFragment"
+        android:label="Teams" />
 
     <fragment
         android:id="@+id/passwordFragment"
-        android:name="com.example.numbergenerator.presentation.PasswordFragment"
-        android:label="Password"></fragment>
+        android:name="com.obakengneo.numbergenerator.presentation.SecurityFragment"
+        android:label="Password" />
 </navigation>

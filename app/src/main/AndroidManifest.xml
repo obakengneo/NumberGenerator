@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.numbergenerator">
+    package="com.obakengneo.numbergenerator">
 
     <application
         android:allowBackup="true"
@@ -9,9 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".presentation.DisplayTeams"></activity>
-        <activity android:name=".presentation.MainActivity" />
-        <activity android:name=".presentation.SplashScreen">
+        <activity
+            android:name="com.obakengneo.numbergenerator.presentation.DisplayTeams"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.obakengneo.numbergenerator.presentation.ActivitySettings"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.obakengneo.numbergenerator.presentation.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.obakengneo.numbergenerator.presentation.SplashScreen"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

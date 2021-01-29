@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="?attr/colorPrimaryDark"
     android:orientation="vertical"
     tools:context=".presentation.DisplayTeams">
 
@@ -12,8 +12,8 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@android:color/black"
-        app:titleTextColor="@android:color/white"></androidx.appcompat.widget.Toolbar>
+        android:background="?attr/colorPrimaryDark"
+        app:titleTextColor="?attr/background" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -21,15 +21,21 @@
         android:background="@drawable/shadow"
         android:paddingTop="0.1dp">
 
-        <ListView
-            android:id="@+id/lstTeams"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/black"
-            android:clickable="false"
-            android:divider="@android:color/transparent"
-            android:gravity="center"
-            android:padding="10dp"
-            android:tint="@color/black"></ListView>
+            android:background="?attr/colorPrimaryDark"
+            android:orientation="vertical">
+
+            <ListView
+                android:id="@+id/lstTeams"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:clickable="false"
+                android:divider="@android:color/transparent"
+                android:gravity="center"
+                android:tint="?attr/colorPrimaryDark" />
+        </LinearLayout>
     </RelativeLayout>
 </LinearLayout>

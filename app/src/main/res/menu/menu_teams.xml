@@ -6,11 +6,11 @@
         android:id="@+id/copy"
         android:icon="@drawable/ic_copy"
         android:title="Copy"
-        app:showAsAction="always"></item>
+        app:showAsAction="always" />
 
     <item
         android:id="@+id/refresh"
         android:icon="@drawable/ic_baseline_refresh_24"
         android:title="Refresh"
-        app:showAsAction="ifRoom"></item>
+        app:showAsAction="ifRoom" />
 </menu>

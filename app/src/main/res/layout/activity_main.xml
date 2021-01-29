@@ -6,15 +6,8 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:background="@android:color/black"
+    android:background="?attr/colorPrimaryDark"
     tools:context=".presentation.MainActivity">
-
-    <androidx.drawerlayout.widget.DrawerLayout
-        android:id="@+id/drawer"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/black"
-        tools:openDrawer="end">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -25,8 +18,8 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="@android:color/black"
-                app:titleTextColor="@android:color/white">
+                android:background="?attr/colorPrimaryDark"
+                app:titleTextColor="?attr/background">
 
             </androidx.appcompat.widget.Toolbar>
 
@@ -46,36 +39,20 @@
                         android:name="androidx.navigation.fragment.NavHostFragment"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="?attr/colorAccent"
+                        android:background="?attr/colorPrimaryDark"
                         app:defaultNavHost="true"
-                        app:navGraph="@navigation/fragment_navigation"></fragment>
+                        app:navGraph="@navigation/fragment_navigation" />
                 </RelativeLayout>
 
                 <com.google.android.material.bottomnavigation.BottomNavigationView
                     android:id="@+id/bottom_nav"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@android:color/black"
+                    android:background="?attr/colorPrimaryDark"
                     app:itemIconTint="@drawable/bottom_navigation_colors"
                     app:itemTextColor="@drawable/bottom_navigation_colors"
                     app:labelVisibilityMode="unlabeled"
-                    app:menu="@menu/menu_navigation"></com.google.android.material.bottomnavigation.BottomNavigationView>
+                    app:menu="@menu/menu_navigation" />
             </LinearLayout>
         </LinearLayout>
-
-        <com.google.android.material.navigation.NavigationView
-            android:id="@+id/navigationView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="start"
-            android:background="@color/colorPrimary"
-            android:focusable="true"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            app:elevation="4dp"
-            app:headerLayout="@layout/header_nav"
-            app:itemIconSize="20sp"
-            app:itemTextColor="@color/black"
-            app:menu="@menu/menu_item"></com.google.android.material.navigation.NavigationView>
-    </androidx.drawerlayout.widget.DrawerLayout>
 </LinearLayout>

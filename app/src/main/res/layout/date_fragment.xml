@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/black"
+    android:background="?attr/colorPrimaryDark"
     android:gravity="center_horizontal"
     android:orientation="vertical">
 
@@ -18,7 +18,7 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/black">
+            android:background="?attr/colorPrimaryDark">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -42,9 +42,9 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginBottom="5dp"
-                            android:text="Date from:"
-                            android:textColor="@android:color/darker_gray"
-                            android:textSize="16sp"></TextView>
+                            android:text="@string/date_from"
+                            android:textColor="@color/gray_color"
+                            android:textSize="16sp" />
 
                         <TextView
                             android:id="@+id/edtChooseDateFrom"
@@ -55,7 +55,7 @@
                             android:background="@drawable/edt_background"
                             android:gravity="center"
                             android:textColor="@color/colorPrimary"
-                            android:textColorHint="@android:color/darker_gray" />
+                            android:textColorHint="@color/gray_color" />
                     </LinearLayout>
 
 
@@ -70,9 +70,9 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginBottom="5dp"
-                            android:text="Date to:"
-                            android:textColor="@android:color/darker_gray"
-                            android:textSize="16sp"></TextView>
+                            android:text="@string/date_to"
+                            android:textColor="@color/gray_color"
+                            android:textSize="16sp" />
 
                         <TextView
                             android:id="@+id/edtChooseDateTo"
@@ -83,7 +83,7 @@
                             android:background="@drawable/edt_background"
                             android:gravity="center"
                             android:textColor="@color/colorPrimary"
-                            android:textColorHint="@android:color/darker_gray" />
+                            android:textColorHint="@color/gray_color" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -94,21 +94,21 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginRight="20dp"
-                    android:background="@android:color/black"
+                    android:background="?attr/colorPrimaryDark"
                     android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:background="@android:color/black"
+                        android:background="?attr/colorPrimaryDark"
                         android:orientation="horizontal">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_margin="5dp"
-                            android:background="@android:color/black"
+                            android:background="?attr/colorPrimaryDark"
                             android:orientation="horizontal">
 
                             <TextView
@@ -116,9 +116,9 @@
                                 android:layout_height="40dp"
                                 android:layout_gravity="center"
                                 android:gravity="center_vertical"
-                                android:text="Number of dates: "
-                                android:textColor="@android:color/darker_gray"
-                                android:textSize="16sp"></TextView>
+                                android:text="@string/number_of_dates"
+                                android:textColor="@color/gray_color"
+                                android:textSize="16sp" />
 
                             <TextView
                                 android:id="@+id/txtTimesCount"
@@ -127,7 +127,7 @@
                                 android:layout_gravity="center"
                                 android:layout_marginStart="10dp"
                                 android:gravity="start"
-                                android:text="1"
+                                android:text="@string/_1"
                                 android:textColor="@color/colorPrimary"
                                 android:textSize="16sp"
                                 android:textStyle="bold">
@@ -147,8 +147,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
-                            android:text="1"
-                            android:textColor="@android:color/darker_gray"
+                            android:text="@string/_1"
+                            android:textColor="@color/gray_color"
                             android:textSize="16sp" />
 
                         <SeekBar
@@ -157,24 +157,24 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_weight="1"
-                            android:backgroundTint="@android:color/darker_gray"
+                            android:backgroundTint="@color/gray_color"
                             android:indeterminate="false"
                             android:max="5"
                             android:min="1"
-                            app:theme="@style/SeekBarColor" />
+                            android:theme="@style/SeekBarColor" />
 
                         <TextView
                             android:id="@+id/textView3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
-                            android:text="5"
-                            android:textColor="@android:color/darker_gray"
+                            android:text="@string/_5"
+                            android:textColor="@color/gray_color"
                             android:textSize="16sp" />
                     </LinearLayout>
                 </LinearLayout>
 
-                <LinearLayout
+                <ScrollView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="20dp">
@@ -182,13 +182,13 @@
                     <TextView
                         android:id="@+id/txtDateResults"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
                         android:textColor="@color/colorPrimary"
                         android:textSize="16sp"
-                        android:textStyle="bold"></TextView>
-                </LinearLayout>
+                        android:textStyle="bold" />
+                </ScrollView>
             </LinearLayout>
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -196,9 +196,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|end"
-                android:layout_margin="16dp"
-                android:backgroundTint="@color/pink"
-                android:tint="@color/black"
+                android:layout_margin="14dp"
+                android:backgroundTint="@color/colorAccent"
+                android:tint="?attr/colorPrimaryDark"
                 app:srcCompat="@drawable/ic_baseline_refresh_24"
                 tools:ignore="VectorDrawableCompat" />
         </FrameLayout>

@@ -11,15 +11,16 @@
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:gravity="center"
-        android:text="Select number of teams!"
-        android:textColor="@color/black"
-        android:textStyle="bold"></TextView>
+        android:text="@string/select_number_of_teams"
+        android:textColor="?attr/colorPrimaryDark"
+        android:textStyle="bold" />
 
     <NumberPicker
         android:id="@+id/numberPicker"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
+        android:theme="@style/DefaultNumberPickerTheme"
         android:layout_margin="20dp" />
 
     <LinearLayout
@@ -34,8 +35,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            android:background="@color/black"
-            android:text="Set"
+            android:background="?attr/colorPrimaryDark"
+            android:text="@string/set"
             android:textColor="@color/colorPrimary" />
     </LinearLayout>
 </LinearLayout>
